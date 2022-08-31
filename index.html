@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <style>
+    body{
+      background-color: blue;
+      display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    }
+    #container{
+      text-align: center;
+      padding: 50px;
+      background-color: white;
+      
+    }
+    h2{
+      margin: 0px 0px 10px 0px;
+    }
+    input{
+      width: 200px;
+     padding: 10px;
+      margin: 10px 0px;
+    }
+    input[type='submit']{
+      width: 230px;
+      background-color: blue;
+      color: white;
+    }
+    .error{
+      margin: 0px;
+      color: red;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <h2>Login</h2>
+    <form action="" onsubmit="return valid()">
+      <input type="text"  id="username" placeholder="Username"> <br>
+      <p id="userError" class="error"></p>
+      <input type="Password" id="password" placeholder="Password"><br>
+      <p id="passError" class="error"></p>
+
+      <input type="Submit"><br>
+    </form> 
+
+  </div>
+  <script>
+    let username=document.getElementById('username');
+    let password=document.getElementById('password');
+    let flag=1;
+    function valid(){
+    if(username.value==''){
+      document.getElementById('userError').innerHTML='Username is Empty';
+      flag=0;
+    }else if(username.value.length < 3){
+      document.getElementById('userError').innerHTML='Username has minimum 3 character';
+      flag=0;
+    }else{
+      document.getElementById('userError').innerHTML='';
+    } 
+  if(password.value ==''){
+    document.getElementById('passError').innerHTML="Password is Empty";
+    flag=0;
+
+  }else{
+    document.getElementById('passError').innerHTML="";
+    flag=1;
+
+  }
+  if(flag){
+    return true;
+
+  }else{
+   return false;
+  }
+  }
+  </script>
+</body>
+</html> 
